@@ -126,19 +126,18 @@ auth.settings.reset_password_requires_verification = True
 # >>> for row in rows: print row.id, row.myfield
 # -------------------------------------------------------------------------
 
-db.define_table('SIMULATION',
+INPUT_SIMULATION = db.define_table('INPUT_SIMULATION',
+    Field('LABEL', 'list:string'),
+    Field('SIM_FILE', 'upload'),
+    )
+
+SIMULATION = db.define_table('SIMULATION',
     Field('LABEL', 'string'),
     Field('SELECTED', 'boolean'),
-    Field('TEMPSELECTED', 'boolean')
+    Field('TEMPSELECTED', 'boolean'),
     )
-
-db.define_table('COMPARISON',
-    Field('LABEL', 'string'),
-    Field('SIM_FILE', 'upload'),
-    Field('SIM', 'reference SIMULATION')
-    )
-
-db.define_table('TIMEFRAME',
+    
+TIMEFRAME = db.define_table('TIMEFRAME',
     Field('LABEL', 'string'),
     Field('TIMESTEP', 'double'),
     Field('DSSP', 'double'),

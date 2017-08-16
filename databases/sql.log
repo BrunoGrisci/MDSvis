@@ -82,3 +82,55 @@ CREATE TABLE "TIMEFRAME"(
     "PDB" CHAR(512)
 );
 success!
+timestamp: 2017-08-16T12:27:34.821290
+ALTER TABLE "SIMULATION" ADD "SIM_FILE" CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2017-08-16T12:48:16.080347
+CREATE TABLE "INPUT_SIMULATION"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "LABEL" CHAR(512),
+    "SIM_FILE" CHAR(512)
+);
+success!
+timestamp: 2017-08-16T12:48:16.341774
+ALTER TABLE "SIMULATION" ADD "INPUT_FILE" INTEGER REFERENCES "INPUT_SIMULATION" ("id") ON DELETE CASCADE  ;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

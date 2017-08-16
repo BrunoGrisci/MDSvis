@@ -57,3 +57,18 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+    
+def upload():
+    form = SQLFORM(db.INPUT_SIMULATION)
+    if form.process().accepted:
+        #session.flash = 'Novo vídeo cadastrado: %s' % form.vars.titulo
+        for row in db(db.INPUT_SIMULATION.id > 0).iterselect():
+            db.TIMEFRAME.insert(LABEL=row['LABEL'])
+        redirect(URL('visualize'))
+    elif form.errors:
+        response.flash = 'Error!'
+    return dict(form=form)
+    
+def visualize():
+    grid = SQLFORM.grid(TIMEFRAME)
+    return dict(grid=grid)      
