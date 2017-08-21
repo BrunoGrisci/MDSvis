@@ -1,4 +1,4 @@
-timestamp: 2017-08-15T23:27:58.687573
+timestamp: 2017-08-21T16:31:34.389684
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2017-08-15T23:27:58.839103
+timestamp: 2017-08-21T16:31:34.484934
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2017-08-15T23:27:59.001097
+timestamp: 2017-08-21T16:31:34.551807
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2017-08-15T23:27:59.173088
+timestamp: 2017-08-21T16:31:34.619068
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2017-08-15T23:27:59.336580
+timestamp: 2017-08-21T16:31:34.694221
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2017-08-15T23:27:59.520166
+timestamp: 2017-08-21T16:31:34.786784
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,70 +53,23 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2017-08-15T23:29:35.336845
-CREATE TABLE "SIMULATION"(
+timestamp: 2017-08-21T16:31:34.862080
+CREATE TABLE "album"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "LABEL" CHAR(512),
-    "SELECTED" CHAR(1),
-    "TEMPSELECTED" CHAR(1)
+    "label" CHAR(512),
+    "sim_files" TEXT
 );
 success!
-timestamp: 2017-08-15T23:29:35.552014
-CREATE TABLE "COMPARISON"(
+timestamp: 2017-08-21T16:31:34.953528
+CREATE TABLE "arquivos"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "LABEL" CHAR(512),
-    "SIM_FILE" CHAR(512),
-    "SIM" INTEGER REFERENCES "SIMULATION" ("id") ON DELETE CASCADE  
+    "arquivo" CHAR(512)
 );
 success!
-timestamp: 2017-08-15T23:29:35.768851
-CREATE TABLE "TIMEFRAME"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "LABEL" CHAR(512),
-    "TIMESTEP" DOUBLE,
-    "DSSP" DOUBLE,
-    "SASA" DOUBLE,
-    "GYRATE" DOUBLE,
-    "ENERGY" DOUBLE,
-    "RMSF" DOUBLE,
-    "PDB" CHAR(512)
-);
-success!
-timestamp: 2017-08-16T12:27:34.821290
-ALTER TABLE "SIMULATION" ADD "SIM_FILE" CHAR(512);
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-timestamp: 2017-08-16T12:48:16.080347
-CREATE TABLE "INPUT_SIMULATION"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "LABEL" CHAR(512),
-    "SIM_FILE" CHAR(512)
-);
-success!
-timestamp: 2017-08-16T12:48:16.341774
-ALTER TABLE "SIMULATION" ADD "INPUT_FILE" INTEGER REFERENCES "INPUT_SIMULATION" ("id") ON DELETE CASCADE  ;
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
+timestamp: 2017-08-21T16:33:03.517467
+ALTER TABLE "album" ADD "titulo" CHAR(512);
+timestamp: 2017-08-21T16:33:03.616052
+ALTER TABLE "album" ADD "fotos" TEXT;
 success!
 success!
 success!
